@@ -35,6 +35,8 @@ var objects;
             this.x += this._dx;
             this._checkBounds();
         };
+        Enemy.prototype.hit = function () {
+        };
         return Enemy;
     })(objects.GameObject);
     objects.Enemy = Enemy;

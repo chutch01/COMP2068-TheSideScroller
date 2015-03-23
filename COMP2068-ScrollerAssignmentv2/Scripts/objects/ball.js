@@ -32,6 +32,8 @@ var objects;
             this.x -= this._dx;
             this._checkBounds();
         };
+        Ball.prototype.hit = function () {
+        };
         return Ball;
     })(objects.GameObject);
     objects.Ball = Ball;

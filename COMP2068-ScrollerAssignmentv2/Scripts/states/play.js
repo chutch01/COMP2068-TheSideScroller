@@ -70,11 +70,13 @@ var states;
             this.hallway.update();
             this.samus.update();
             this.ball.update();
+            //collision between enemy and Samus
             if (this.scoreboard.lives > 0) {
                 for (var enemy = constants.ENEMY_NUM; enemy > 0; enemy--) {
                     this.enemies[enemy].update();
                     this.checkCollision(this.samus, true, this.enemies[enemy], true);
                 }
+                //collision between samus and ball
                 this.checkCollision(this.samus, false, this.ball, true);
             }
             this.scoreboard.update();
