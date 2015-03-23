@@ -1,0 +1,52 @@
+/// <reference path="../constants.ts" />
+/// <reference path="../objects/samus.ts" />
+/// <reference path="../objects/ball.ts" />
+/// <reference path="../constants.ts" />
+/// <reference path="../objects/gameobject.ts" />
+/// <reference path="../objects/hallway.ts" />
+/// <reference path="../objects/enemy.ts" />
+/// <reference path="../objects/scoreboard.ts" />
+/// <reference path="../objects/label.ts" />
+/// <reference path="../objects/button.ts" />
+var states;
+(function (states) {
+    var HowTo = (function () {
+        // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        function HowTo() {
+            // Instantiate Game Container
+            this.game = new createjs.Container();
+            // Add ocean to game
+            this.background = new objects.Hallway();
+            this.game.addChild(this.background);
+            var howto1 = new objects.Label("DODGE THE ENEMIES", constants.SCREEN_CENTER_WIDTH, 100);
+            var howto2 = new objects.Label("AND COLLECT THE BALLS", constants.SCREEN_CENTER_WIDTH, 200);
+            howto1.font = "40px Consolas";
+            howto1.regX = howto1.getMeasuredWidth() * 0.5;
+            howto1.regY = howto1.getMeasuredHeight() * 0.5;
+            howto2.font = "40px Consolas";
+            howto2.regX = howto2.getMeasuredWidth() * 0.5;
+            howto2.regY = howto2.getMeasuredHeight() * 0.5;
+            this.game.addChild(howto1);
+            this.game.addChild(howto2);
+            this.playButton = new objects.Button("playButton", constants.SCREEN_CENTER_WIDTH, 400);
+            this.game.addChild(this.playButton);
+            this.playButton.on("click", this.playButtonClicked, this);
+            stage.addChild(this.game);
+        } // constructor end
+        // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++
+        HowTo.prototype.playButtonClicked = function () {
+            this.game.removeAllChildren();
+            createjs.Sound.stop();
+            stage.removeChild(this.game);
+            currentState = constants.PLAY_STATE;
+            stateChanged = true;
+        };
+        // UPDATE METHOD
+        HowTo.prototype.update = function () {
+            this.background.update();
+        }; // update method end
+        return HowTo;
+    })();
+    states.HowTo = HowTo;
+})(states || (states = {}));
+//# sourceMappingURL=howto.js.map
