@@ -1,13 +1,13 @@
 ﻿module objects {
 
-    export class Samus extends createjs.Bitmap {
+    export class Samus extends objects.GameObject {
         public width: number;
         public height: number;
         public name: string;
 
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++
         constructor() {
-            super(assetLoader.getResult("samus"));
+            super("samus");
 
             this.name = "samus";
 

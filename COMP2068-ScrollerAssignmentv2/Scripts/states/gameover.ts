@@ -23,8 +23,8 @@ module states {
             this.game = new createjs.Container();
 
             // Add ocean to game
-            this.ocean = new objects.Hallway();
-            this.game.addChild(this.ocean);
+            this.hallway = new objects.Hallway();
+            this.game.addChild(this.hallway);
 
             var gameOverScreen = new createjs.Bitmap("assets/images/gameoverScreen.png");
             gameOverScreen.x = 20;

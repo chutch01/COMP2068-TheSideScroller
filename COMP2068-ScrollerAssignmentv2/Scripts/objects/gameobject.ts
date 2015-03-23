@@ -24,7 +24,10 @@
 
             this.isColliding = false;
         }
+        //public methods++++++++++++++++++++++++++++++++++++++++++++
 
+        public hit() {
+    }
 
     }
 

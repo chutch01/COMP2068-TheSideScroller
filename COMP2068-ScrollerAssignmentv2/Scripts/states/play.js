@@ -39,30 +39,30 @@ var states;
             return Math.floor(Math.sqrt(Math.pow((p2.x - p1.x), 2) + Math.pow((p2.y - p1.y), 2)));
         }; // distance end
         // CHeck Collision Method
-        Play.prototype.checkCollision = function (collider) {
+        Play.prototype.checkCollision = function (collider1, hit1, collider2, hit2) {
             var p1 = new createjs.Point();
             var p2 = new createjs.Point();
-            p1.x = this.samus.x;
-            p1.y = this.samus.y;
-            p2.x = collider.x;
-            p2.y = collider.y;
+            p1.x = collider1.x;
+            p1.y = collider1.y;
+            p2.x = collider2.x;
+            p2.y = collider2.y;
             // Check for Collision
-            if (this.distance(p2, p1) < ((this.samus.height * 0.5) + (collider.height * 0.5))) {
-                if (!collider.isColliding) {
-                    createjs.Sound.play(collider.soundString);
-                    collider.isColliding = true;
-                    switch (collider.name) {
-                        case "ball":
-                            this.scoreboard.score += 100;
-                            break;
-                        case "enemy":
-                            this.scoreboard.lives--;
-                            break;
+            if (this.distance(p2, p1) < ((collider1.height * 0.5) + (collider2.height * 0.5))) {
+                if (!collider2.isColliding && !collider1.isColliding) {
+                    createjs.Sound.play(collider2.soundString);
+                    collider1.isColliding = true;
+                    collider2.isColliding = true;
+                    if (hit1) {
+                        collider1.hit();
+                    }
+                    if (hit2) {
+                        collider2.hit();
                     }
                 }
             }
             else {
-                collider.isColliding = false;
+                collider1.isColliding = false;
+                collider2.isColliding = false;
             }
         }; // checkCollision end
         // UPDATE METHOD
@@ -73,9 +73,9 @@ var states;
             if (this.scoreboard.lives > 0) {
                 for (var enemy = constants.ENEMY_NUM; enemy > 0; enemy--) {
                     this.enemies[enemy].update();
-                    this.checkCollision(this.enemies[enemy]);
+                    this.checkCollision(this.samus, true, this.enemies[enemy], true);
                 }
-                this.checkCollision(this.ball);
+                this.checkCollision(this.samus, false, this.ball, true);
             }
             this.scoreboard.update();
             if (this.scoreboard.lives < 1) {

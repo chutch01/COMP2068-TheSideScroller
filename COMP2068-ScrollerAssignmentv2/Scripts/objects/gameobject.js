@@ -17,6 +17,9 @@ var objects;
             this.regY = this.height * 0.5;
             this.isColliding = false;
         }
+        //public methods++++++++++++++++++++++++++++++++++++++++++++
+        GameObject.prototype.hit = function () {
+        };
         return GameObject;
     })(createjs.Bitmap);
     objects.GameObject = GameObject;

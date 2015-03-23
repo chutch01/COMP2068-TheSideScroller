@@ -16,8 +16,8 @@ var states;
             // Instantiate Game Container
             this.game = new createjs.Container();
             // Add ocean to game
-            this.ocean = new objects.Hallway();
-            this.game.addChild(this.ocean);
+            this.hallway = new objects.Hallway();
+            this.game.addChild(this.hallway);
             var gameOverScreen = new createjs.Bitmap("assets/images/gameoverScreen.png");
             gameOverScreen.x = 20;
             gameOverScreen.y = 60;
@@ -45,7 +45,7 @@ var states;
         };
         // UPDATE METHOD
         GameOver.prototype.update = function () {
-            this.ocean.update();
+            this.hallway.update();
         }; // update method end
         return GameOver;
     })();

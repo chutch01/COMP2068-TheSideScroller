@@ -10,7 +10,7 @@ var objects;
         __extends(Samus, _super);
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++
         function Samus() {
-            _super.call(this, assetLoader.getResult("samus"));
+            _super.call(this, "samus");
             this.name = "samus";
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
@@ -24,7 +24,7 @@ var objects;
             this.y = stage.mouseY;
         };
         return Samus;
-    })(createjs.Bitmap);
+    })(objects.GameObject);
     objects.Samus = Samus;
 })(objects || (objects = {}));
 //# sourceMappingURL=samus.js.map
