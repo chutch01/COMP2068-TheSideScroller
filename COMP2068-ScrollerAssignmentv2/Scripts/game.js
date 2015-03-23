@@ -6,6 +6,7 @@
 /// <reference path="typings/stats/stats.d.ts" />
 /// <reference path="constants.ts" />
 /// <reference path="objects/gameobject.ts" />
+/// <reference path="objects/laser.ts" />
 /// <reference path="objects/samus.ts" />
 /// <reference path="objects/ball.ts" />
 /// <reference path="objects/enemy.ts" />
