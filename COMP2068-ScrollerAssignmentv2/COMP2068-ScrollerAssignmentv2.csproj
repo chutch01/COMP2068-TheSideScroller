@@ -66,6 +66,7 @@
     <Content Include="assets\audio\title.mp3" />
     <Content Include="assets\images\ball.png" />
     <Content Include="assets\images\enemy.png" />
+    <Content Include="assets\images\gameoverScreen.png" />
     <Content Include="assets\images\hallway.png" />
     <Content Include="assets\images\howtoButton.png" />
     <Content Include="assets\images\howtoScreen.png" />

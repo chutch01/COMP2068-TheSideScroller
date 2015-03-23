@@ -18,11 +18,15 @@ var states;
             // Add ocean to game
             this.ocean = new objects.Hallway();
             this.game.addChild(this.ocean);
-            var gameOverLabel = new objects.Label("GAME OVER", constants.SCREEN_CENTER_WIDTH, 100);
-            gameOverLabel.font = "60px Consolas";
-            gameOverLabel.regX = gameOverLabel.getMeasuredWidth() * 0.5;
-            gameOverLabel.regY = gameOverLabel.getMeasuredHeight() * 0.5;
-            this.game.addChild(gameOverLabel);
+            var gameOverScreen = new createjs.Bitmap("assets/images/gameoverScreen.png");
+            gameOverScreen.x = 20;
+            gameOverScreen.y = 60;
+            /* var gameOverLabel: objects.Label = new objects.Label("GAME OVER", constants.SCREEN_CENTER_WIDTH, 100);
+             gameOverLabel.font = "60px Consolas";
+             gameOverLabel.regX = gameOverLabel.getMeasuredWidth() * 0.5;
+             gameOverLabel.regY = gameOverLabel.getMeasuredHeight() * 0.5;
+             this.game.addChild(gameOverLabel);*/
+            this.game.addChild(gameOverScreen);
             var finalScoreLabel = new objects.Label("FINAL SCORE: " + finalScore, constants.SCREEN_CENTER_WIDTH, 200);
             this.game.addChild(finalScoreLabel);
             var highScoreLabel = new objects.Label("HIGH SCORE: " + highScore, constants.SCREEN_CENTER_WIDTH, 300);
