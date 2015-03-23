@@ -81,10 +81,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="assets\images\island.png" />
-    <Content Include="assets\images\ocean.gif" />
-    <Content Include="assets\images\plane.png" />
-    <Content Include="assets\images\sideplane.gif" />
     <Content Include="css\game.css" />
     <Content Include="index.html" />
     <Content Include="Scripts\lib\easeljs-0.8.0.min.js" />

@@ -18,18 +18,21 @@ var states;
             // Add ocean to game
             this.background = new objects.Hallway();
             this.game.addChild(this.background);
-            var howto1 = new objects.Label("DODGE THE ENEMIES", constants.SCREEN_CENTER_WIDTH, 100);
-            var howto2 = new objects.Label("AND COLLECT THE BALLS", constants.SCREEN_CENTER_WIDTH, 200);
-            howto1.font = "40px Consolas";
-            howto1.regX = howto1.getMeasuredWidth() * 0.5;
-            howto1.regY = howto1.getMeasuredHeight() * 0.5;
-            howto2.font = "40px Consolas";
-            howto2.regX = howto2.getMeasuredWidth() * 0.5;
-            howto2.regY = howto2.getMeasuredHeight() * 0.5;
-            this.game.addChild(howto1);
-            this.game.addChild(howto2);
-            this.playButton = new objects.Button("playButton", constants.SCREEN_CENTER_WIDTH, 400);
+            var howtoScreen = new createjs.Bitmap("assets/images/howtoScreen.png");
+            howtoScreen.x = 20;
+            /*  var howto1: objects.Label = new objects.Label("DODGE THE ENEMIES", constants.SCREEN_CENTER_WIDTH, 100);
+              var howto2: objects.Label = new objects.Label("AND COLLECT THE BALLS", constants.SCREEN_CENTER_WIDTH, 200);
+              howto1.font = "40px Consolas";
+              howto1.regX = howto1.getMeasuredWidth() * 0.5;
+              howto1.regY = howto1.getMeasuredHeight() * 0.5;
+              howto2.font = "40px Consolas";
+              howto2.regX = howto2.getMeasuredWidth() * 0.5;
+              howto2.regY = howto2.getMeasuredHeight() * 0.5;
+              this.game.addChild(howto1);
+              this.game.addChild(howto2);*/
+            this.playButton = new objects.Button("playButton", constants.SCREEN_CENTER_WIDTH, 450);
             this.game.addChild(this.playButton);
+            this.game.addChild(howtoScreen);
             this.playButton.on("click", this.playButtonClicked, this);
             stage.addChild(this.game);
         } // constructor end
