@@ -94,8 +94,7 @@ var states;
             }
         }; // update method end
         Play.prototype.fire = function () {
-            console.log("firing laser...");
-            this.samus.shoot();
+            console.log("pew pew");
         };
         return Play;
     })();

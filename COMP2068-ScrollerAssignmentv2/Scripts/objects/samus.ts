@@ -19,6 +19,8 @@
 
             this.x = 50;
 
+            this.shoot();
+
            // createjs.Sound.play("engine", { loop: -1 });
             
         }
@@ -30,6 +32,7 @@
         }
 
         public shoot() {
+            console.log("pew pew");
         }
 
         public hit() {

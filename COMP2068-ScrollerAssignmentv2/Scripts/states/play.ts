@@ -134,9 +134,9 @@ module states {
         }// update method end
 
         public fire() {
-            console.log("firing laser...");
-                this.samus.shoot();
-            }
+            console.log("pew pew");
+        }
+
         }
 
 

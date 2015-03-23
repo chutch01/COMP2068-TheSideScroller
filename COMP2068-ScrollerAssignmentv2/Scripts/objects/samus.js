@@ -17,6 +17,7 @@ var objects;
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
             this.x = 50;
+            this.shoot();
             // createjs.Sound.play("engine", { loop: -1 });
         }
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++
@@ -24,6 +25,7 @@ var objects;
             this.y = stage.mouseY;
         };
         Samus.prototype.shoot = function () {
+            console.log("pew pew");
         };
         Samus.prototype.hit = function () {
         };
