@@ -14,7 +14,7 @@ module states {
     export class GameOver {
         // INSTANCE VARIABLES ++++++++++++++++++++++++++++++++++++++++++++++
         public game: createjs.Container;
-        public ocean: objects.Hallway;
+        public hallway: objects.Hallway;
         public tryAgainButton: objects.Button;
 
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -63,7 +63,7 @@ module states {
         // UPDATE METHOD
         public update() {
 
-            this.ocean.update();
+            this.hallway.update();
 
         } // update method end
 
