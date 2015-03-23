@@ -19,15 +19,19 @@ var states;
             // Add ocean to game
             this.hallway = new objects.Hallway();
             this.game.addChild(this.hallway);
-            var mailPilotLabel = new objects.Label("MEDTROID FLYER", constants.SCREEN_CENTER_WIDTH, 100);
-            mailPilotLabel.font = "80px Consolas";
-            mailPilotLabel.regX = mailPilotLabel.getMeasuredWidth() * 0.5;
-            mailPilotLabel.regY = mailPilotLabel.getMeasuredHeight() * 0.5;
-            this.game.addChild(mailPilotLabel);
-            this.playButton = new objects.Button("playButton", constants.SCREEN_CENTER_WIDTH, 400);
+            var playScreen = new createjs.Bitmap("assets/images/playscreen.png");
+            playScreen.x = 20;
+            playScreen.y = 60;
+            /* var mailPilotLabel: objects.Label = new objects.Label("MEDTROID FLYER", constants.SCREEN_CENTER_WIDTH, 100);
+             mailPilotLabel.font = "80px Consolas";
+             mailPilotLabel.regX = mailPilotLabel.getMeasuredWidth() * 0.5;
+             mailPilotLabel.regY = mailPilotLabel.getMeasuredHeight() * 0.5;
+             this.game.addChild(mailPilotLabel);*/
+            this.game.addChild(playScreen);
+            this.playButton = new objects.Button("playButton", 200, 400);
             this.game.addChild(this.playButton);
             this.playButton.on("click", this.playButtonClicked, this);
-            this.howtoButton = new objects.Button("howtoButton", constants.SCREEN_CENTER_WIDTH, 300);
+            this.howtoButton = new objects.Button("howtoButton", 400, 400);
             this.game.addChild(this.howtoButton);
             this.howtoButton.on("click", this.howtoButtonClicked, this);
             stage.addChild(this.game);
