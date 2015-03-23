@@ -104,6 +104,16 @@ module states {
                 }
 
                 this.checkCollision(this.samus, false, this.ball, true);
+               /*
+                //COLLISION BETWEEN ENEMY AND LASER
+                for (var cloud = constants.ENEMY_NUM; cloud > 0; cloud--) {
+                this.enemy[cloud].update();
+                this.checkCollision(this.samus, true, this.enemy[cloud], true);
+                for (var laser = this.totalLasers - 1; laser >= 0; laser--) {
+                    this.checkCollision(this.enemy[cloud], true, this.samus.lasers[laser], true);
+
+                }
+            }*/
             }
 
             this.scoreboard.update();
