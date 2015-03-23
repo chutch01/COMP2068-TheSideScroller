@@ -1,37 +1,46 @@
-﻿module objects {
-
+﻿/*
+ * this is the laser that the player fires from the character it will be removed if it collides with something
+ */
+module objects {
     export class Laser extends objects.GameObject {
 
-        // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++
-        constructor() {
+        public samus: objects.Samus;
+
+        //constructor ++++++++++++++++++++++++++++
+        constructor(x: number, y: number, samus: objects.Samus) {
             super("laser");
-            this.name = "laser";
-            this.soundString = "explosion";
-            this._dx = 5;
+            this.x = x;
+            this.y = y;
+            this.samus = samus;
+
+
+            this.soundString = "laser_sound";
+
 
 
         }
 
-        // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++
-
-        private _checkBounds() {
-            if (this.x >= 680 + this.width) {
-            }
-        }
-
-
-        // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++
-
+        //public methods+++++++++++++++++++++++++++
         public update() {
-            //this.y += this._dy;
-            this.x += this._dx;
 
+            this.x += 5;
 
-            this._checkBounds();
+            if (this.x > 680) {
+
+             
+                this.samus.lasers.splice(this.samus.lasers.indexOf(this), 1);//remove a laser from the array
+                stage.removeChild(this);
+            }
+
         }
         public hit() {
+            console.log("laser exploded");
+            createjs.Sound.play("enemyexplosion");
+            this.samus.totalLasers--; //decrease the number of lasers in game
+            this.samus.lasers.splice(this.samus.lasers.indexOf(this), 1);
+            stage.removeChild(this);
+
         }
 
     }
-
 }  

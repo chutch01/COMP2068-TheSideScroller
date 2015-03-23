@@ -11,21 +11,18 @@ var objects;
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++
         function Samus() {
             _super.call(this, "samus");
+            this.lasers = [];
             this.name = "samus";
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
             this.x = 50;
-            this.shoot();
             // createjs.Sound.play("engine", { loop: -1 });
         }
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++
         Samus.prototype.update = function () {
             this.y = stage.mouseY;
-        };
-        Samus.prototype.shoot = function () {
-            console.log("pew pew");
         };
         Samus.prototype.hit = function () {
         };

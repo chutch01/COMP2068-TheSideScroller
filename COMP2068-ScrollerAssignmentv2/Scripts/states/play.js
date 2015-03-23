@@ -20,7 +20,6 @@ var states;
             this.game = new createjs.Container();
             // Add ocean to game
             this.hallway = new objects.Hallway();
-            this.hallway.addEventListener("click", this.fire);
             this.game.addChild(this.hallway);
             // Add island to game
             this.ball = new objects.Ball();
@@ -54,6 +53,14 @@ var states;
                     createjs.Sound.play(collider2.soundString);
                     collider1.isColliding = true;
                     collider2.isColliding = true;
+                    switch (collider2.name) {
+                        case "ball":
+                            this.scoreboard.score += 100;
+                            break;
+                        case "enemy":
+                            this.scoreboard.lives--;
+                            break;
+                    }
                     if (hit1) {
                         collider1.hit();
                     }
@@ -94,9 +101,6 @@ var states;
                 stateChanged = true;
             }
         }; // update method end
-        Play.prototype.fire = function () {
-            console.log("pew pew");
-        };
         return Play;
     })();
     states.Play = Play;

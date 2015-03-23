@@ -13,6 +13,7 @@ var constants;
     // Game Constants
     constants.PLAYER_LIVES = 5;
     constants.ENEMY_NUM = 10;
+    constants.TOTAL_LASERS = 20;
     // States Constants
     constants.MENU_STATE = 0;
     constants.PLAY_STATE = 1;

@@ -4,6 +4,9 @@
         public width: number;
         public height: number;
         public name: string;
+        public laser: objects.Laser;
+        public lasers: objects.Laser[] = [];
+        public totalLasers;
 
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++
         constructor() {
@@ -19,8 +22,6 @@
 
             this.x = 50;
 
-            this.shoot();
-
            // createjs.Sound.play("engine", { loop: -1 });
             
         }
@@ -29,10 +30,6 @@
         
         public update() {
             this.y = stage.mouseY;
-        }
-
-        public shoot() {
-            console.log("pew pew");
         }
 
         public hit() {

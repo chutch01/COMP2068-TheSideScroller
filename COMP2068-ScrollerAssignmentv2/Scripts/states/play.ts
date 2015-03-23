@@ -21,15 +21,17 @@ module states {
         public hallway: objects.Hallway;
         public scoreboard: objects.ScoreBoard;
 
+
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++++++++++++
         constructor() {
             createjs.Sound.play("brinstar", { loop: -1 });
             // Instantiate Game Container
             this.game = new createjs.Container();
 
+
             // Add ocean to game
             this.hallway = new objects.Hallway();
-            this.hallway.addEventListener("click", this.fire);
+            
             this.game.addChild(this.hallway);
        
 
@@ -80,6 +82,14 @@ module states {
                     collider1.isColliding = true;
                     collider2.isColliding = true;
 
+                    switch (collider2.name) {
+                        case "ball":
+                            this.scoreboard.score += 100;
+                            break;
+                        case "enemy":
+                            this.scoreboard.lives--;
+                            break;
+                    }
                     if (hit1) {
                         collider1.hit();
                     }
@@ -134,9 +144,6 @@ module states {
             }
         }// update method end
 
-        public fire() {
-            console.log("pew pew");
-        }
 
         }
 
