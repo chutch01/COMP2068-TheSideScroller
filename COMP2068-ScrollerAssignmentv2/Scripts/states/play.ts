@@ -28,7 +28,9 @@ module states {
 
             // Add ocean to game
             this.hallway = new objects.Hallway();
+            this.hallway.addEventListener("click", this.fire);
             this.game.addChild(this.hallway);
+       
 
 
             // Add island to game
@@ -89,7 +91,7 @@ module states {
                 collider2.isColliding = false;
             }
     } // checkCollision end
-
+        
         // UPDATE METHOD
         public update() {
 
@@ -129,8 +131,15 @@ module states {
                 currentState = constants.GAME_OVER_STATE;
                 stateChanged = true;
             }
-        } // update method end
+        }// update method end
+
+        public fire() {
+            console.log("firing laser...");
+                this.samus.shoot();
+            }
+        }
 
 
     }
-} 
+  
+    

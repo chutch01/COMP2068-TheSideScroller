@@ -24,9 +24,12 @@
         }
 
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++
-
+        
         public update() {
             this.y = stage.mouseY;
+        }
+
+        public shoot() {
         }
 
         public hit() {

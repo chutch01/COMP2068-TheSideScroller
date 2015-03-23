@@ -19,6 +19,7 @@ var states;
             this.game = new createjs.Container();
             // Add ocean to game
             this.hallway = new objects.Hallway();
+            this.hallway.addEventListener("click", this.fire);
             this.game.addChild(this.hallway);
             // Add island to game
             this.ball = new objects.Ball();
@@ -92,6 +93,10 @@ var states;
                 stateChanged = true;
             }
         }; // update method end
+        Play.prototype.fire = function () {
+            console.log("firing laser...");
+            this.samus.shoot();
+        };
         return Play;
     })();
     states.Play = Play;

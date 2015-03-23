@@ -23,6 +23,8 @@ var objects;
         Samus.prototype.update = function () {
             this.y = stage.mouseY;
         };
+        Samus.prototype.shoot = function () {
+        };
         Samus.prototype.hit = function () {
         };
         return Samus;
