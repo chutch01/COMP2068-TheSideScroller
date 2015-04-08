@@ -94,6 +94,12 @@ var states;
                 for (var laser = this.samus.totalLasers - 1; laser >= 0; laser--) {
                     this.samus.lasers[laser].update();
                 }
+                for (var laser = this.samus.totalLasers - 1; laser >= 0; laser--) {
+                    this.samus.lasers[laser].update();
+                    for (var enemy = constants.ENEMY_NUM; enemy > 0; enemy--) {
+                        this.checkCollision(this.enemies[enemy], true, this.samus.lasers[laser], true);
+                    }
+                }
                 //collision between samus and ball
                 this.checkCollision(this.samus, false, this.ball, true);
             }

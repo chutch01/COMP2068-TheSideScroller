@@ -31,7 +31,9 @@ module objects {
             this.x += 5;
             this._checkBounds();
         }
-
+        public hit() {
+            stage.removeChild(this);
+        }
 
     }
 }  

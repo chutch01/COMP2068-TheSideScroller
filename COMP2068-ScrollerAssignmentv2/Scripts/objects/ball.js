@@ -33,6 +33,7 @@ var objects;
             this._checkBounds();
         };
         Ball.prototype.hit = function () {
+            this._reset();
         };
         return Ball;
     })(objects.GameObject);

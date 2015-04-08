@@ -39,6 +39,10 @@
         }
         public update() {
             this.y = stage.mouseY;
+            
+        }
+
+        public hit() {
         }
 
         public actionStart(key) {

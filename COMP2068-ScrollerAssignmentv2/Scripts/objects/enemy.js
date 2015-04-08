@@ -36,6 +36,7 @@ var objects;
             this._checkBounds();
         };
         Enemy.prototype.hit = function () {
+            this._reset();
         };
         return Enemy;
     })(objects.GameObject);

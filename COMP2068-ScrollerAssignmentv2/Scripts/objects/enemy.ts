@@ -39,6 +39,7 @@
             this._checkBounds();
         }
         public hit() {
+            this._reset();
         }
 
 

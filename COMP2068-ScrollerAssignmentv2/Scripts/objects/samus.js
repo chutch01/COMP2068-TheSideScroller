@@ -32,6 +32,8 @@ var objects;
         Samus.prototype.update = function () {
             this.y = stage.mouseY;
         };
+        Samus.prototype.hit = function () {
+        };
         Samus.prototype.actionStart = function (key) {
             if (key == 32) {
                 console.log("firing");

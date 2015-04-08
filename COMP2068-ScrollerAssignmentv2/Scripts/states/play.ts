@@ -125,24 +125,30 @@ module states {
                 for (var enemy = constants.ENEMY_NUM; enemy > 0; enemy--) {
                     this.enemies[enemy].update();
                     this.checkCollision(this.samus, true, this.enemies[enemy], true);
+                    
                 }
       
                     for (var laser = this.samus.totalLasers - 1; laser >= 0; laser--) {
                         this.samus.lasers[laser].update();
                      //for ends
                 }
+
+                    //COLLISION BETWEEN ENEMY AND LASER
+                    for (var laser = this.samus.totalLasers - 1; laser >= 0; laser--) {
+                        this.samus.lasers[laser].update();
+                        
+
+                        for (var enemy = constants.ENEMY_NUM; enemy > 0; enemy--) {
+                            this.checkCollision(this.enemies[enemy], true, this.samus.lasers[laser], true);
+                            
+
+                        } //if ends
+                    } //for ends
+
                 //collision between samus and ball
                 this.checkCollision(this.samus, false, this.ball, true);
                
-                //COLLISION BETWEEN ENEMY AND LASER
-               /* for (var enemy = constants.ENEMY_NUM; enemy > 0; enemy--) {
-                    this.enemies[enemy].update();
-                for (var laser = constants.TOTAL_LASERS; laser >= 0; laser--) {
-                    this.lasers[laser].update();
-                    this.checkCollision(this.enemies[enemy], true, this.lasers[laser], true);
-
-                }
-            }*/
+                
             }
 
             this.scoreboard.update();
