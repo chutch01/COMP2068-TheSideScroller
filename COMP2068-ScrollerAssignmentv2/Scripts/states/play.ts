@@ -13,7 +13,7 @@
 module states {
     // PLAY STATE
     export class Play {
-
+        private _container: createjs.Container;
         // INSTANCE VARIABLES ++++++++++++++++++++++++++++++++++++++++++++++
         public game: createjs.Container;
         public samus: objects.Samus;
@@ -46,6 +46,8 @@ module states {
             this.ball = new objects.Ball();
             this.game.addChild(this.ball);
 
+            //add scoreboard to the game
+            this.scoreboard = new objects.ScoreBoard(this.game);
 
             // Add plane to game
             this.samus = new objects.Samus(this.game);
@@ -53,12 +55,12 @@ module states {
 
             // Add clouds to game
             for (var enemy = constants.ENEMY_NUM; enemy > 0; enemy--) {
-                this.enemies[enemy] = new objects.Enemy();
+                this.enemies[enemy] = new objects.Enemy(this.scoreboard);
                 this.game.addChild(this.enemies[enemy]);
             }
+            
 
-            //add lasers to the game
-                this.scoreboard = new objects.ScoreBoard(this.game);
+          
 
                 document.addEventListener("keydown", function (event) {
                     event.preventDefault(); //stops the page from scrolling down when space is pressed
@@ -101,6 +103,10 @@ module states {
                             this.scoreboard.lives--;
                             break;
                     }
+
+                    switch (collider1.name) {
+                        case "enemy":
+                    }
                     if (hit1) {
                         collider1.hit();
                     }
@@ -128,10 +134,7 @@ module states {
                     
                 }
       
-                    for (var laser = this.samus.totalLasers - 1; laser >= 0; laser--) {
-                        this.samus.lasers[laser].update();
-                     //for ends
-                }
+                    
 
                     //COLLISION BETWEEN ENEMY AND LASER
                     for (var laser = this.samus.totalLasers - 1; laser >= 0; laser--) {

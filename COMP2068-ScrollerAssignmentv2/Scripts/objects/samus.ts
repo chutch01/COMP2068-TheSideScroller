@@ -1,7 +1,7 @@
 ﻿module objects {
 
     export class Samus extends objects.GameObject {
-        private _container: createjs.Container;
+        public _container: createjs.Container;
         public width: number;
         public height: number;
         public name: string;
@@ -29,13 +29,17 @@
            // createjs.Sound.play("engine", { loop: -1 });
             
         }
+        //private methods
+
 
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++
         public shoot() {
             createjs.Sound.play("lasersound");
-            this.lasers[this.totalLasers] = new objects.Laser(this.x, this.y);
+            this.lasers[this.totalLasers] = new objects.Laser(this.x, this.y, this, this._container);
             this._container.addChild(this.lasers[this.totalLasers]);
             this.totalLasers++;
+            console.log(this.totalLasers);
+           
         }
         public update() {
             this.y = stage.mouseY;
@@ -47,7 +51,7 @@
 
         public actionStart(key) {
             if (key == 32) {
-                console.log("firing");
+                //console.log("firing");
                 this.shoot();
             } //if ends
         }

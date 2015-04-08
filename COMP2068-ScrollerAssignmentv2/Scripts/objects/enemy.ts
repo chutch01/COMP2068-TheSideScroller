@@ -1,12 +1,14 @@
 ﻿module objects {
 
     export class Enemy extends objects.GameObject {
+        private _scoreboard: objects.ScoreBoard;
 
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++
-        constructor() {
+        constructor(scoreboard: objects.ScoreBoard) {
             super("enemy");
             this.name = "enemy";
             this.soundString = "explosion";
+            this._scoreboard = scoreboard;
 
             this._reset();
 
@@ -40,6 +42,7 @@
         }
         public hit() {
             this._reset();
+            this._scoreboard.score += 50;
         }
 
 

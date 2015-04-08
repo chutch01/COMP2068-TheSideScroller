@@ -22,12 +22,14 @@ var objects;
             this.totalLasers = 0;
             // createjs.Sound.play("engine", { loop: -1 });
         }
+        //private methods
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++
         Samus.prototype.shoot = function () {
             createjs.Sound.play("lasersound");
-            this.lasers[this.totalLasers] = new objects.Laser(this.x, this.y);
+            this.lasers[this.totalLasers] = new objects.Laser(this.x, this.y, this, this._container);
             this._container.addChild(this.lasers[this.totalLasers]);
             this.totalLasers++;
+            console.log(this.totalLasers);
         };
         Samus.prototype.update = function () {
             this.y = stage.mouseY;
@@ -36,7 +38,7 @@ var objects;
         };
         Samus.prototype.actionStart = function (key) {
             if (key == 32) {
-                console.log("firing");
+                //console.log("firing");
                 this.shoot();
             } //if ends
         };

@@ -9,10 +9,11 @@ var objects;
     var Enemy = (function (_super) {
         __extends(Enemy, _super);
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++
-        function Enemy() {
+        function Enemy(scoreboard) {
             _super.call(this, "enemy");
             this.name = "enemy";
             this.soundString = "explosion";
+            this._scoreboard = scoreboard;
             this._reset();
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++
@@ -37,6 +38,7 @@ var objects;
         };
         Enemy.prototype.hit = function () {
             this._reset();
+            this._scoreboard.score += 50;
         };
         return Enemy;
     })(objects.GameObject);
