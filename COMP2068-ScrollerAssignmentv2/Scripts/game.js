@@ -75,6 +75,7 @@ var manifest = [
     { id: "explosion", src: "assets/audio/explosion.wav" },
     { id: "brinstar", src: "assets/audio/brinstar.mp3" },
     { id: "lasersound", src: "assets/audio/laser_sound.wav" },
+    { id: "enemyexplosion", src: "assets/audio/enemy_explosion.wav" },
     { id: "title", src: "assets/audio/title.mp3" }
 ];
 // Game Objects 
