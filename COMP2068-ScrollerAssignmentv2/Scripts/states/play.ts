@@ -142,8 +142,9 @@ module states {
                         
 
                         for (var enemy = constants.ENEMY_NUM; enemy > 0; enemy--) {
-                            this.checkCollision(this.enemies[enemy], true, this.samus.lasers[laser], true);
-                            
+                            if (this.samus.lasers[laser] != null) {
+                                this.checkCollision(this.enemies[enemy], true, this.samus.lasers[laser], true);
+                            }  
 
                         } //if ends
                     } //for ends

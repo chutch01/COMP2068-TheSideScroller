@@ -18,7 +18,7 @@ module objects {
 
         //public methods+++++++++++++++++++++++++++
         private _reset() {
-            createjs.Sound.play("enemyexplosion");
+            
             this._container.removeChild(this);
             this.samus.lasers.splice(this.samus.lasers.indexOf(this), 1);
             this.samus.totalLasers--;
@@ -43,6 +43,7 @@ module objects {
             this._checkBounds();
         }
         public hit() {
+            createjs.Sound.play("enemyexplosion");
             this._reset();
         }
 
