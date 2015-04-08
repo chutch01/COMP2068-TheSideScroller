@@ -19,7 +19,7 @@ var states;
             // Add ocean to game
             this.background = new objects.Hallway();
             this.game.addChild(this.background);
-            var howtoScreen = new createjs.Bitmap("assets/images/howtoScreen.png");
+            var howtoScreen = new createjs.Bitmap("assets/images/howtoScreen1.png");
             howtoScreen.x = 20;
             /*  var howto1: objects.Label = new objects.Label("DODGE THE ENEMIES", constants.SCREEN_CENTER_WIDTH, 100);
               var howto2: objects.Label = new objects.Label("AND COLLECT THE BALLS", constants.SCREEN_CENTER_WIDTH, 200);
